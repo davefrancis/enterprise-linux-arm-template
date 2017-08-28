@@ -443,7 +443,7 @@
                   "typeHandlerVersion": "1.4",
                   "autoUpgradeMinorVersion": true,
                   "protectedSettings": {
-                    "commandToExecute": "[concat('sh WebNode-config.sh \"', parameters('adminPassword'), '\" \"', concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', variables('databaseName'), ';User Id=', parameters('adminUsername'), '@', reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ';Password=''', parameters('adminPassword'), ''';'), '\" \"', parameters('dnsPrefix'), '\" \"', parameters('certThumbPrint'), '\"')]"
+                    "commandToExecute": "[concat('sh WebNode-config.sh \"', parameters('adminPassword'), '\" \"', concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', variables('databaseName'), ';User Id=', parameters('adminUsername'), '@', reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ';Password=''', parameters('adminPassword'), ''';'), '\" \"', parameters('dnsPrefix'), '\" \"', parameters('certThumbPrint'), '\" \"', resourceGroup().location, '\"')]"
                   },
                   "type": "CustomScriptForLinux"
                 }

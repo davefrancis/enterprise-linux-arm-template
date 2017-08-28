@@ -8,7 +8,7 @@ echo "Done waitng for apt..."
 
 CERT_FILE=$4
 
-SERVERCONF="server {\n\tlisten 443; \n\tssl on; \n\tserver_name $3.westus.cloudapp.azure.com; \n\tssl_certificate /etc/ssl/certs/$CERT_FILE.crt; \n\tssl_certificate_key /etc/ssl/certs/$CERT_FILE.prv; \n\troot /var/www/html; \n\tlocation /ping { return 200 \"hello\";} \n\tlocation / { \n\t\tproxy_pass http://127.0.0.1:12800; \n\t} \n}"
+SERVERCONF="server {\n\tlisten 443; \n\tssl on; \n\tserver_name $3.$5.cloudapp.azure.com; \n\tssl_certificate /etc/ssl/certs/$CERT_FILE.crt; \n\tssl_certificate_key /etc/ssl/certs/$CERT_FILE.prv; \n\troot /var/www/html; \n\tlocation /ping { return 200 \"hello\";} \n\tlocation / { \n\t\tproxy_pass http://127.0.0.1:12800; \n\t} \n}"
 echo $SERVERCONF
 apt install -y nginx jq
 
