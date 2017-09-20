@@ -27,3 +27,10 @@ python -m virtualenv /home/spacyenv
 source /home/spacyenv/bin/activate
 pip install spacy
 python -m spacy download en
+
+# Install required R packages
+R --vanilla -e \"install.packages('spacyr', repos = 'https://cloud.r-project.org')\"
+R --vanilla -e \"install.packages('stringr', repos = 'https://cloud.r-project.org')\"
+R --vanilla -e \"install.packages('jsonlite', repos = 'https://cloud.r-project.org')\"
+R --vanilla -e \"install.packages('stringi', repos = 'https://cloud.r-project.org')\"
+R --vanilla -e \"install.packages('tidyverse', repos = 'https://cloud.r-project.org')\"
