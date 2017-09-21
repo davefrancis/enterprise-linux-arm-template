@@ -15,10 +15,6 @@ jq -r ".Pool.MaxSize = \"$2\"" > /usr/lib64/microsoft-r/rserver/o16n/9.1.0/Micro
 rm /usr/lib64/microsoft-r/rserver/o16n/9.1.0/Microsoft.RServer.ComputeNode/appsettingsOLD.json
 cat /usr/lib64/microsoft-r/rserver/o16n/9.1.0/Microsoft.RServer.ComputeNode/appsettings.json
 
-sleep 10
-echo "Configuring as R Server Compute Node..."
-/usr/local/bin/dotnet /usr/lib64/microsoft-r/rserver/o16n/9.1.0/Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll -silentcomputenodeinstall
-
 iptables --flush
 
 #virtualenv and spacy installs
@@ -34,3 +30,7 @@ R --vanilla -e 'install.packages("stringr", repos = "https://cloud.r-project.org
 R --vanilla -e 'install.packages("jsonlite", repos = "https://cloud.r-project.org")'
 R --vanilla -e 'install.packages("stringi", repos = "https://cloud.r-project.org")'
 R --vanilla -e 'install.packages("tidyverse", repos = "https://cloud.r-project.org")'
+
+sleep10
+echo "Configuring as R Server Compute Node..."
+/usr/local/bin/dotnet /usr/lib64/microsoft-r/rserver/o16n/9.1.0/Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll -silentcomputenodeinstall
